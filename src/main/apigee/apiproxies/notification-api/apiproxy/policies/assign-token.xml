@@ -1,0 +1,8 @@
+<AssignMessage async="false" continueOnError="false" enabled="true" name="assign-token">
+    <AssignTo createNew="false" transport="http" type="request"/>
+    <Set>
+        <Headers>
+            <Header name="token">{request.header.token}</Header>
+        </Headers>
+    </Set>
+</AssignMessage>

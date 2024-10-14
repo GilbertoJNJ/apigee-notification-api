@@ -1,0 +1,11 @@
+<RaiseFault async="false" continueOnError="false" enabled="true" name="raise-fault">
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="application/json">{"error": "Requisição não permitida"}</Payload>
+            <StatusCode>403</StatusCode>
+            <ReasonPhrase>Forbidden</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+</RaiseFault>

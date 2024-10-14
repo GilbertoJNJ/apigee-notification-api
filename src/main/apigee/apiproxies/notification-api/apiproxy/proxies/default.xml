@@ -1,0 +1,53 @@
+<ProxyEndpoint name="default">
+
+  <HTTPProxyConnection>
+    <BasePath>/notifications</BasePath>
+    <VirtualHost>default</VirtualHost>
+  </HTTPProxyConnection>
+
+  <RouteRule name="backend">
+    <TargetEndpoint>backend</TargetEndpoint>
+  </RouteRule>
+
+  <PreFlow name="PreFlow">
+    <Request>
+      <Step>
+        <Name>assign-token</Name>
+      </Step>
+    </Request>
+  </PreFlow>
+
+  <Flows>
+
+    <Flow name="GetAllNotifications">
+      <Description>Retorna todas as notificações do usuário</Description>
+      <Condition>(proxy.pathsuffix = "") and (request.verb = "GET")</Condition>
+    </Flow>
+
+    <Flow name="GetNotificationById">
+      <Description>Retorna uma notificação específica</Description>
+      <Condition>(proxy.pathsuffix MatchesPath "/{id}") and (request.verb = "GET")</Condition>
+    </Flow>
+
+    <Flow name="DeleteNotificationById">
+      <Description>Deleta uma notificação específica</Description>
+      <Condition>(proxy.pathsuffix MatchesPath "/{id}") and (request.verb = "DELETE")</Condition>
+    </Flow>
+
+    <Flow name="MarkNotificationAsRead">
+      <Description>Marca uma notificação como lida</Description>
+      <Condition>(proxy.pathsuffix MatchesPath "/{id}/mark-as-read") and (request.verb = "PATCH")</Condition>
+    </Flow>
+
+    <Flow name="BlockAllOtherRequests">
+      <Condition>true</Condition>
+      <Request>
+        <Step>
+          <Name>raise-fault</Name>
+        </Step>
+      </Request>
+    </Flow>
+    
+  </Flows>
+
+</ProxyEndpoint>
