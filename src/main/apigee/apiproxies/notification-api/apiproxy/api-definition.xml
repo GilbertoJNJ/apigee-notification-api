@@ -1,0 +1,15 @@
+<APIProxy name="notifications">
+    <Description>API de notificações</Description>
+    <CreatedAt>2024-10-19T00:00:00Z</CreatedAt>
+    <CreatedBy>user@example.com</CreatedBy>
+    <LastModifiedAt>2024-10-19T00:00:00Z</LastModifiedAt>
+    <LastModifiedBy>user@example.com</LastModifiedBy>
+    <Revision>1</Revision>
+    <BasePaths>
+        <BasePath>/notifications</BasePath>
+    </BasePaths>
+    <ContextInfo revision="1">
+        <ContextVariable name="organization" value="your-apigee-org"/>
+    </ContextInfo>
+    <Resources/>
+</APIProxy>

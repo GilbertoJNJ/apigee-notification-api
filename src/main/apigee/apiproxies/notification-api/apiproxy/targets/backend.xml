@@ -1,5 +1,5 @@
 <TargetEndpoint name="backend">
     <HTTPTargetConnection>
-        <URL>http://{api-url}/notifications</URL>
+        <URL>https://mocktarget.apigee.net</URL>
     </HTTPTargetConnection>
 </TargetEndpoint>
