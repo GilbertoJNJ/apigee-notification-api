@@ -2,11 +2,9 @@ pipeline {
     agent any
 
     environment {
-        APIGEE_ORG = 'your-apigee-org'
-        APIGEE_ENV = 'your-apigee-env'
+        APIGEE_ORG = 'blissful-axiom-358022'
+        APIGEE_ENV = 'eval'
         APIGEE_API = 'notifications'
-        APIGEE_USERNAME = credentials('apigee-username')
-        APIGEE_PASSWORD = credentials('apigee-password')
         APIGEE_BASE_URL = 'https://api.enterprise.apigee.com/v1'
     }
 
@@ -14,7 +12,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Obtém o código do repositório
-                git branch: 'main', url: 'https://your-git-repo-url.git'
+                git branch: 'feature/deploy-com-jenkins', url: 'https://github.com/GilbertoJNJ/apigee-notification-api.git'
             }
         }
 
